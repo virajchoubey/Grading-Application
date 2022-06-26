@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Grading Application-4th sem</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="design.css">
+    </head>
+    <body>
+        <div class="container">
+            <!--section a for designing logo and section b for form -->
+            <div class="section-A">
+                <div class="line"></div>
+                <div class="designtext">
+                   <h1>Student<br>Grade<br>Calculator </h1>
+                </div>
+            </div>
+            <div class="section-B">
+                <div class="screen-body-item">
+                    <div class="app-form">
+                        <!--here input fields begin-->
+                        <div class="app-form-group">
+                            <input type="text" class="app-form-control" required placeholder="M-III" id="w1">
+                        </div>
+                        <div class="app-form-group">
+                            <input type="text" class="app-form-control" required placeholder="Operating System" id="w2">
+                        </div>
+                        <div class="app-form-group">
+                            <input type="text" class="app-form-control" required placeholder="Software Engineering" id="w3">
+                        </div>
+                        <div class="app-form-group">
+                            <input type="text" class="app-form-control" required placeholder="Analysis and Design of Algo" id="w4">
+                        </div>
+                        <div class="app-form-group">
+                            <input type="text" class="app-form-control" required placeholder="Computer Oragnization and Architecture" id="w5">
+                        </div>
+                        <!--here the input fields end-->
+                        <div><span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <input onclick="cal()" type="button" name=" " value=" Show-Percentage" class="app-form-button" required>
+                        </div>
+                        <!--created a button-->
+    
+                    </div>
+                    <div class ="app-form-group-ShowData"> <p id="showData"></p> </div>
+                </div>
+            </div>
+        </div>
+        <div class="sub-text"><a href="#"><P>4th Semester CSE</P></a>
+            <br><div class="lines3"></div>
+            <div class="lines"></div><div class="lines2"></div><div class="lines3"></div><div class="lines4"></div>
+            <div class="lines"></div><div class="lines4"></div>
+            <br><br><br><br><br><br><br><a href="file:///C:/Users/Dell/Desktop/College%20Grading%20System%20-%20Project02/main.html">
+            <P id="back">Hey! Let's Go Back To The Home Page.</P></a>
+        </div>
+        
+        <script>
+
+            
+const cal = () =>{
+    let w1 = document.getElementById('w1').value;
+    let w2 = document.getElementById('w2').value;
+    let w3 = document.getElementById('w3').value;
+    let w4 = document.getElementById('w4').value;
+    let w5 = document.getElementById('w5').value;
+
+    let totalMarks = parseFloat(w1)+parseFloat(w2)+parseFloat(w3)+parseFloat(w4)+parseFloat(w5);
+    //alert(totalMarks);
+    //console.log(totalMarks);
+
+    let percentage;
+    percentage= (totalMarks/500)*100;
+    //alert(`The percentge is ${percentage}`);
+
+    //grade 
+    let grade;
+    if(percentage<=100 && percentage>=95){
+        grade="A+";
+    }else if(percentage<=94&&percentage>=80){
+        grade='A';
+    }else if(percentage<=79&&percentage>=60){
+        grade='B';
+    }else if(percentage<=59&&percentage>=45){
+        grade='C';
+    }else if(percentage<=44&&percentage>=33){
+        grade='D';
+    }else{
+        grade='F';
+    }
+
+    //Pass/fail
+    let result;
+    if(percentage>=33){
+        result="Pass";
+    }else{
+        result="Fail";
+    }
+
+    //showData 
+    document.getElementById('showData').innerHTML = `Out of total 500 your total is ${totalMarks} and Percentage is ${percentage}%. <br>Your grade is ${grade}. You are ${result}.`;
+    
+}
+
+        </script>
+    </body>
+</html>
